@@ -131,7 +131,7 @@ Grays between ink and white are not defined in the brandbook — they are this c
 | `accent`                         | `#EBEBEB` | `#383838` | Hover/highlight states                 |
 | `border` / `input`               | `#DEDEDE` | `#3D3D3D` | Every structural line and input border |
 | `foreground` / `card-foreground` | `#1E1E1E` | `#FFFFFF` | Headings and body                      |
-| `muted-foreground`               | `#6E6E6E` | `#A3A3A3` | Secondary copy, captions               |
+| `muted-foreground`               | `#6E6E6E` | `#B3B3B3` | Secondary copy, captions (7:1 in dark) |
 | `primary` / `ring`               | `#1E1E1E` | `#FFFFFF` | Primary action, active state, focus    |
 | `primary-foreground`             | `#FFFFFF` | `#1E1E1E` | Text on primary                        |
 | `destructive`                    | `#FF0055` | `#FF0055` | Destructive actions/states             |
@@ -253,7 +253,7 @@ Shadows are this codebase's extension. The brand's only "depth" effect is the **
 - **Minimum size** (digital / print): with LLC 32px / 8mm; without LLC 20px / 7mm; symbol only 20px / 5mm. Drop "LLC" whenever it isn't perfectly legible (favicons, footers, small UI).
 - **Incorrect applications**: low-contrast backgrounds; stretching or distortion; drop shadows, glows or 3D effects on the logo; strokes/outlines/borders; rotation; colors outside the Thera palette.
 - **Header**: primary logo without "LLC" (`public/brand/thera-horizontal.svg`, negative `thera-horizontal-white.svg` in dark mode) at 28px height — the symbol keeps the brand recognizable, and LLC is dropped below 32px per the brandbook.
-- **Assets**: `public/brand/` holds the Thera header logos; the inherited Spar marks there (and `app/icon.svg`, `public/logo-mark.svg`, PWA icons) are still pending replacement with the Thera exports from the brandbook Drive folder (symbol, wordmark, per-service variants, favicon set for web, Windows, iOS and Android).
+- **Assets**: `public/brand/` holds the Thera header logos (`thera-horizontal.svg`, `thera-horizontal-white.svg`). Favicons come from the brandbook's favicon set: positive mark for light browser chrome (`public/favicon-*.png`, `app/favicon.ico`), negative for dark (`public/favicon-dark-*.png`), and the negative mark on Thera ink for app icons (`apple-icon.png`, `icon-192.png`, `icon-512.png`, `maskable-512.png`).
 
 ### Buttons
 
