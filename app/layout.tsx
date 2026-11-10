@@ -13,8 +13,29 @@ const chillax = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Spar",
-  description: "A strong technical base for agentic development.",
+  title: "Thera",
+  description: "Purpose-driven software for meaningful growth.",
+  // Positive mark on light browser chrome, negative on dark; favicon.ico
+  // (positive) covers browsers that ignore `media`.
+  icons: {
+    icon: [
+      ...[32, 196].flatMap((size) => [
+        {
+          url: `/favicon-${size}.png`,
+          sizes: `${size}x${size}`,
+          type: "image/png",
+          media: "(prefers-color-scheme: light)",
+        },
+        {
+          url: `/favicon-dark-${size}.png`,
+          sizes: `${size}x${size}`,
+          type: "image/png",
+          media: "(prefers-color-scheme: dark)",
+        },
+      ]),
+    ],
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

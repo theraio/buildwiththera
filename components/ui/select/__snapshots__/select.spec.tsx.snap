@@ -5,7 +5,7 @@ exports[`Select > matches its snapshot 1`] = `
   <button
     aria-autocomplete="none"
     aria-expanded="false"
-    class="flex h-11 w-full items-center justify-between gap-2 rounded-md border border-input bg-transparent px-4 py-2.5 text-sm text-foreground transition-colors outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary aria-invalid:border-destructive aria-invalid:focus-visible:outline-destructive [&>span]:line-clamp-1 hover:border-primary"
+    class="flex h-11 w-full items-center justify-between gap-2 rounded-md border border-input bg-transparent px-4 py-2.5 text-sm text-foreground transition-colors outline-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-primary aria-invalid:border-destructive aria-invalid:focus-visible:outline-destructive [&>span]:line-clamp-1 hover:border-primary"
     data-placeholder=""
     data-slot="select-trigger"
     data-state="closed"

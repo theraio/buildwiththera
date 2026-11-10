@@ -6,13 +6,13 @@ export const badgeVariants = cva(
     "whitespace-nowrap text-xs font-medium", // text
     "rounded-full border border-transparent px-2.5 py-0.5", // shape
     "transition-colors", // motion
-    "outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary", // focus state
+    "outline-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-primary", // focus state
     "[&>svg]:pointer-events-none [&>svg]:size-3", // icon children
   ],
   {
     variants: {
       variant: {
-        primary: "bg-primary text-primary-foreground [a&]:hover:bg-primary/70",
+        primary: "bg-primary text-primary-foreground [a&]:hover:bg-primary/86",
         destructive:
           "bg-destructive/90 text-destructive-foreground [a&]:hover:bg-destructive",
         outline:

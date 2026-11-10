@@ -73,6 +73,6 @@ describe("Button", () => {
     const link = screen.getByRole("link", { name: "Go to billing" });
     expect(link).toBe(ref.current);
     expect(link.tagName).toBe("A");
-    expect(link.className).toContain("bg-primary/70");
+    expect(link.className).toContain("bg-primary/86");
   });
 });

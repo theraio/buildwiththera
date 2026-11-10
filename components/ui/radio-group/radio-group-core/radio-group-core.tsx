@@ -26,7 +26,7 @@ function RadioGroupCoreItem({ className, ...props }: RadioGroupCoreItemProps) {
         "size-4 shrink-0 rounded-full border border-input bg-transparent transition-colors", // layout & shape
         "hover:border-primary", // hover state
         "data-[state=checked]:border-primary", // checked state
-        "outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary", // focus state
+        "outline-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-primary", // focus state
         "disabled:cursor-not-allowed disabled:opacity-50", // disabled state
         "aria-invalid:border-destructive aria-invalid:focus-visible:outline-destructive", // invalid state
         className,

@@ -3,7 +3,7 @@
 exports[`Badge > matches its snapshot 1`] = `
 <div>
   <span
-    class="inline-flex w-fit shrink-0 items-center justify-center gap-1 whitespace-nowrap text-xs font-medium rounded-full border border-transparent px-2.5 py-0.5 transition-colors outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary [&>svg]:pointer-events-none [&>svg]:size-3 bg-primary text-primary-foreground [a&]:hover:bg-primary/70"
+    class="inline-flex w-fit shrink-0 items-center justify-center gap-1 whitespace-nowrap text-xs font-medium rounded-full border border-transparent px-2.5 py-0.5 transition-colors outline-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-primary [&>svg]:pointer-events-none [&>svg]:size-3 bg-primary text-primary-foreground [a&]:hover:bg-primary/86"
     data-slot="badge"
   >
     New

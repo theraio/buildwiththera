@@ -19,6 +19,35 @@ if (typeof Element.prototype.scrollIntoView === "undefined") {
   Element.prototype.scrollIntoView = () => {};
 }
 
+// jsdom doesn't implement matchMedia, which GSAP's ScrollTrigger calls on
+// registration. Only reduced motion matches, so animations snap instead of
+// tweening and assertions don't race GSAP.
+if (typeof window.matchMedia === "undefined") {
+  window.matchMedia = (query: string) =>
+    ({
+      matches: query === "(prefers-reduced-motion: reduce)",
+      media: query,
+      onchange: null,
+      addListener: () => {},
+      removeListener: () => {},
+      addEventListener: () => {},
+      removeEventListener: () => {},
+      dispatchEvent: () => false,
+    }) as MediaQueryList;
+}
+
+// jsdom doesn't implement IntersectionObserver (used by the growth scene).
+if (typeof globalThis.IntersectionObserver === "undefined") {
+  globalThis.IntersectionObserver = class {
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+    takeRecords() {
+      return [];
+    }
+  } as unknown as typeof IntersectionObserver;
+}
+
 // jsdom doesn't implement the Pointer Capture API, which Radix Select calls
 // directly on the event target during its pointerdown handling.
 if (typeof Element.prototype.hasPointerCapture === "undefined") {

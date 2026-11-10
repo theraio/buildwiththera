@@ -19,7 +19,7 @@ exports[`RadioGroup > matches its snapshot 1`] = `
     >
       <button
         aria-checked="false"
-        class="size-4 shrink-0 rounded-full border border-input bg-transparent transition-colors hover:border-primary data-[state=checked]:border-primary outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:outline-destructive mt-0.5"
+        class="size-4 shrink-0 rounded-full border border-input bg-transparent transition-colors hover:border-primary data-[state=checked]:border-primary outline-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:outline-destructive mt-0.5"
         data-orientation="vertical"
         data-radix-collection-item=""
         data-slot="radio-group-item"
@@ -47,7 +47,7 @@ exports[`RadioGroup > matches its snapshot 1`] = `
     >
       <button
         aria-checked="false"
-        class="size-4 shrink-0 rounded-full border border-input bg-transparent transition-colors hover:border-primary data-[state=checked]:border-primary outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:outline-destructive mt-0.5"
+        class="size-4 shrink-0 rounded-full border border-input bg-transparent transition-colors hover:border-primary data-[state=checked]:border-primary outline-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:outline-destructive mt-0.5"
         data-orientation="vertical"
         data-radix-collection-item=""
         data-slot="radio-group-item"
@@ -75,7 +75,7 @@ exports[`RadioGroup > matches its snapshot 1`] = `
     >
       <button
         aria-checked="false"
-        class="size-4 shrink-0 rounded-full border border-input bg-transparent transition-colors hover:border-primary data-[state=checked]:border-primary outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:outline-destructive mt-0.5"
+        class="size-4 shrink-0 rounded-full border border-input bg-transparent transition-colors hover:border-primary data-[state=checked]:border-primary outline-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:outline-destructive mt-0.5"
         data-disabled=""
         data-orientation="vertical"
         data-radix-collection-item=""

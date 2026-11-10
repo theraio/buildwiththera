@@ -5,7 +5,7 @@ export const datePickerTriggerVariants = cva(
     "flex h-11 w-[280px] items-center justify-start gap-2",
     "rounded-md border border-input bg-transparent px-4 py-2.5",
     "text-sm font-normal text-foreground transition-colors",
-    "outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
+    "outline-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-primary",
     "aria-invalid:border-destructive aria-invalid:focus-visible:outline-destructive",
   ],
   {

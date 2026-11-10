@@ -8,8 +8,9 @@ export const buttonVariants = cva(
     "inline-flex items-center justify-center gap-2", // layout & alignment
     "whitespace-nowrap text-sm font-medium", // text
     "rounded-md", // shape
-    "transition-colors", // motion
-    "outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary", // focus state
+    "transition-[background-color,border-color,color,transform] duration-150 ease-[cubic-bezier(.2,.8,.2,1)]", // motion
+    "motion-safe:hover:-translate-y-px motion-safe:active:translate-y-px motion-safe:active:scale-[.985] motion-safe:active:duration-[90ms]", // hover step, press
+    "outline-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-primary", // focus state
     "disabled:pointer-events-none disabled:opacity-50", // disabled state
     "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4", // icon children
     "cursor-auto hover:cursor-pointer",
@@ -17,7 +18,7 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-primary text-primary-foreground hover:bg-primary/70",
+        primary: "bg-primary text-primary-foreground hover:bg-primary/86",
         destructive:
           "bg-destructive/90 text-destructive-foreground hover:bg-destructive",
         outline:

@@ -87,7 +87,7 @@ function DatePicker({
             type="button"
             aria-label="Clear date"
             onClick={() => handleSelect(undefined)}
-            className="absolute top-1/2 right-2 -translate-y-1/2 rounded-sm text-foreground outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            className="absolute top-1/2 right-2 -translate-y-1/2 rounded-sm text-foreground outline-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
             <XIcon className="size-4" />
           </button>
