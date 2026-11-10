@@ -1,0 +1,23 @@
+import AnalyticsTestPanel from "./_components/analytics-test-panel";
+
+export default function AnalyticsTestPage() {
+  return (
+    <div className="flex flex-1 flex-col gap-6 px-6 py-20 sm:px-10">
+      <div className="flex flex-col gap-2">
+        <h1 className="font-sans text-2xl font-bold tracking-tight">
+          Analytics test
+        </h1>
+        <p className="max-w-xl text-sm text-muted-foreground">
+          Dev-only page for exercising{" "}
+          <span className="font-mono">widgets/analytics</span> against a real
+          PostHog project. Set{" "}
+          <span className="font-mono">NEXT_PUBLIC_POSTHOG_KEY</span> in{" "}
+          <span className="font-mono">.env.local</span> to see events land in
+          PostHog — otherwise every call below is a safe no-op. Navigating
+          between pages also exercises automatic pageview capture.
+        </p>
+      </div>
+      <AnalyticsTestPanel />
+    </div>
+  );
+}

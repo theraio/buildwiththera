@@ -1,0 +1,219 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Thera palette — source of truth is the thera LLC Brandbook (2025), see
+ * DESIGN.md. The brand is monochrome (ink #1E1E1E + white) plus five
+ * service colors; nothing outside that palette is allowed, so every
+ * family below is anchored at 500 = a brand hex:
+ *   - gray    -> strictly neutral, ink #1E1E1E at 900 (codebase extension:
+ *                the brandbook defines no intermediate grays).
+ *   - error   -> magenta #FF0055 (Software Development).
+ *   - warning -> orange #FF6B00 (UX/UI Design).
+ *   - success -> lime #9BD301 (Product Strategy & Growth).
+ *   - blue    -> electric blue #0066FF (DevOps & Cloud Architecture).
+ *   - violet  -> violet #A020F0 (Quality Assurance & Testing).
+ * 50–400 are tints toward white, 600–900 shades toward ink.
+ *
+ * On top of the raw scale sits a shadcn-style semantic layer (background,
+ * foreground, card, primary, …). Components are styled against these
+ * semantic names, never against a raw scale step, and `.dark` below only
+ * redefines semantic tokens — the brand's negative treatment (white on ink).
+ */
+@theme {
+  /* Base */
+  --color-base-white: #ffffff;
+  --color-base-white-80: #ffffffcc;
+  --color-base-black: #1e1e1e;
+  --color-base-gray: #f9f9f9;
+  --color-base-skeleton: #f4f4f4;
+
+  /* Gray (neutral, ink at 900) */
+  --color-gray-50: #f9f9f9;
+  --color-gray-100: #f4f4f4;
+  --color-gray-200: #ebebeb;
+  --color-gray-300: #dedede;
+  --color-gray-400: #a3a3a3;
+  --color-gray-500: #8a8a8a;
+  --color-gray-600: #6e6e6e;
+  --color-gray-700: #3d3d3d;
+  --color-gray-750: #383838;
+  --color-gray-800: #2e2e2e;
+  --color-gray-850: #262626;
+  --color-gray-900: #1e1e1e;
+
+  /* Error (magenta) */
+  --color-error-50: #fff2f6;
+  --color-error-100: #ffe6ee;
+  --color-error-200: #ffbfd4;
+  --color-error-300: #ff80aa;
+  --color-error-400: #ff4080;
+  --color-error-500: #ff0055;
+  --color-error-600: #d2064a;
+  --color-error-700: #a50c3f;
+  --color-error-800: #781234;
+  --color-error-900: #56162c;
+
+  /* Warning (orange) */
+  --color-warning-50: #fff8f2;
+  --color-warning-100: #fff0e6;
+  --color-warning-200: #ffdabf;
+  --color-warning-300: #ffb580;
+  --color-warning-400: #ff9040;
+  --color-warning-500: #ff6b00;
+  --color-warning-600: #d25c06;
+  --color-warning-700: #a54c0c;
+  --color-warning-800: #783d12;
+  --color-warning-900: #563116;
+
+  /* Success (lime) */
+  --color-success-50: #fafdf2;
+  --color-success-100: #f5fbe6;
+  --color-success-200: #e6f4c0;
+  --color-success-300: #cde980;
+  --color-success-400: #b4de40;
+  --color-success-500: #9bd301;
+  --color-success-600: #82af07;
+  --color-success-700: #698b0d;
+  --color-success-800: #506612;
+  --color-success-900: #3d4b17;
+
+  /* Blue (electric blue) */
+  --color-blue-50: #f2f7ff;
+  --color-blue-100: #e6f0ff;
+  --color-blue-200: #bfd9ff;
+  --color-blue-300: #80b2ff;
+  --color-blue-400: #408cff;
+  --color-blue-500: #0066ff;
+  --color-blue-600: #0658d2;
+  --color-blue-700: #0c49a5;
+  --color-blue-800: #123b78;
+  --color-blue-900: #163056;
+
+  /* Violet */
+  --color-violet-50: #faf4fe;
+  --color-violet-100: #f6e9fe;
+  --color-violet-200: #e7c7fb;
+  --color-violet-300: #d090f8;
+  --color-violet-400: #b858f4;
+  --color-violet-500: #a020f0;
+  --color-violet-600: #8620c6;
+  --color-violet-700: #6c1f9c;
+  --color-violet-800: #521f72;
+  --color-violet-900: #3e1e52;
+
+  /* Info — sparse alias into the blue family */
+  --color-info-50: #f2f7ff;
+  --color-info-100: #123b78;
+
+  /* Service colors (one per service line, identity only — see DESIGN.md) */
+  --color-service-sd: var(--color-error-500);
+  --color-service-ux: var(--color-warning-500);
+  --color-service-ps: var(--color-success-500);
+  --color-service-dv: var(--color-blue-500);
+  --color-service-qa: var(--color-violet-500);
+
+  /* Semantic: icons */
+  --color-icons-primary: #a3a3a3;
+
+  /* Semantic: borders */
+  --color-borders-primary: #dedede;
+  --color-borders-secondary: #ebebeb;
+  --color-borders-tertiary: #f4f4f4;
+  --color-borders-disabled: #dedede;
+  --color-borders-error: #ff80aa;
+  --color-borders-error-solid: #d2064a;
+  --color-borders-warning: #ffb580;
+  --color-borders-warning-solid: #d25c06;
+  --color-borders-success: #cde980;
+  --color-borders-success-solid: #698b0d;
+  --color-borders-brand: #a3a3a3;
+  --color-borders-brand-solid: #1e1e1e;
+
+  /* Semantic: text */
+  --color-text-primary: #1e1e1e;
+  --color-text-secondary: #6e6e6e;
+  --color-text-tertiary: #8a8a8a;
+  --color-text-quaternary: #a3a3a3;
+  --color-text-white: #ffffff;
+  --color-text-disabled: #a3a3a3;
+  --color-text-error: #a50c3f;
+  --color-text-success: #506612;
+  --color-text-android: #5d5e5f;
+
+  --color-black-tooltip: #1e1e1e;
+
+  /* Semantic: shadcn-style tokens (what components are styled against) */
+  --color-background: var(--color-base-white);
+  --color-foreground: var(--color-text-primary);
+  --color-card: var(--color-base-white);
+  --color-card-foreground: var(--color-text-primary);
+  --color-primary: var(--color-base-black);
+  --color-primary-foreground: var(--color-text-white);
+  --color-secondary: var(--color-gray-100);
+  --color-secondary-foreground: var(--color-text-primary);
+  --color-muted: var(--color-gray-100);
+  --color-muted-foreground: var(--color-text-secondary);
+  --color-accent: var(--color-gray-200);
+  --color-accent-foreground: var(--color-text-primary);
+  --color-destructive: var(--color-error-500);
+  --color-destructive-foreground: var(--color-text-white);
+  --color-border: var(--color-borders-primary);
+  --color-input: var(--color-borders-primary);
+  --color-ring: var(--color-base-black);
+
+  /* Typography — Chillax is the only brand typeface (loaded in app/layout.tsx) */
+  --font-sans: var(--font-chillax), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: Menlo, ui-monospace, monospace;
+
+  /* Radius */
+  --radius: 0.5rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* Negative treatment: white on ink. Only semantic tokens change here. */
+.dark {
+  color-scheme: dark;
+
+  --color-base-gray: var(--color-gray-850);
+  --color-base-skeleton: var(--color-gray-800);
+
+  --color-icons-primary: var(--color-gray-500);
+
+  --color-borders-primary: var(--color-gray-700);
+  --color-borders-secondary: var(--color-gray-750);
+  --color-borders-tertiary: var(--color-gray-800);
+  --color-borders-disabled: var(--color-gray-700);
+  --color-borders-brand: var(--color-gray-600);
+  --color-borders-brand-solid: var(--color-base-white);
+
+  --color-text-primary: var(--color-base-white);
+  --color-text-secondary: var(--color-gray-400);
+  --color-text-tertiary: var(--color-gray-500);
+  --color-text-quaternary: var(--color-gray-600);
+  --color-text-disabled: var(--color-gray-600);
+  --color-text-error: var(--color-error-300);
+  --color-text-success: var(--color-success-500);
+
+  --color-black-tooltip: var(--color-base-white);
+
+  --color-background: var(--color-gray-900);
+  --color-card: var(--color-gray-850);
+  --color-primary: var(--color-base-white);
+  --color-primary-foreground: var(--color-gray-900);
+  --color-secondary: var(--color-gray-800);
+  --color-muted: var(--color-gray-800);
+  --color-accent: var(--color-gray-750);
+  --color-ring: var(--color-base-white);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+}

@@ -1,0 +1,16 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Popover > matches its snapshot 1`] = `
+<div>
+  <button
+    aria-expanded="false"
+    aria-haspopup="dialog"
+    class=""
+    data-slot="popover-trigger"
+    data-state="closed"
+    type="button"
+  >
+    Open
+  </button>
+</div>
+`;

@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Tooltip > matches its snapshot 1`] = `
+<div>
+  <button
+    class=""
+    data-slot="tooltip-trigger"
+    data-state="closed"
+  >
+    Hover me
+  </button>
+</div>
+`;

@@ -1,0 +1,493 @@
+import {
+  Meta,
+  ColorPalette,
+  ColorItem,
+  Unstyled,
+} from "@storybook/addon-docs/blocks";
+
+import { Button, Input } from "../components/ui";
+
+<Meta title="Foundations" />
+
+# Foundations
+
+A warm, editorial surface built around a single confident black accent on
+off-white/clay neutrals, never pure white or cool gray. **Space Grotesk**
+carries headings and UI chrome, **Inter** rides underneath as body/fallback.
+Structure is communicated through a warm tint ladder (background → card → border)
+rather than shadows, while a real, confirmed shadow system exists one layer up for
+floating and overlay surfaces (tooltips, popovers, the chat widget, modals). Card
+geometry is generously rounded (`2xl`), buttons stay closer to the ground (`md`),
+and pills/avatars/progress go fully round.
+
+This page is the living, rendered counterpart of `DESIGN.md` (repo root) — every
+value below is copied from there, not re-derived. **If the two ever disagree**,
+`DESIGN.md` is the source of truth; **fix this page to match it**.
+
+**Key characteristics**
+
+- Warm off-white/clay background (`var(--color-background)`), never pure white or cool gray — the
+  palette's defining trait.
+- One black accent (`primary`) for every emphasis need; no second "commercial" hue.
+- Space Grotesk headings over an Inter body/fallback, both self-hosted.
+- Card radius (`2xl`, 16px) is deliberately softer than button radius (`md`, 6px).
+- Real, confirmed shadow ladder for floating/overlay surfaces — not a shadow-free
+  system.
+- Destructive state uses a single confirmed red (`destructive` — `var(--color-destructive)`); no
+  confirmed warning/success/info colors on the public marketing site.
+
+## Colors
+
+### Brand
+
+<ColorPalette>
+  <ColorItem
+    title="Primary"
+    subtitle="The brand color and only accent — primary CTAs, active/hover indicators, chart emphasis"
+    colors={{ primary: "var(--color-primary)" }}
+  />
+  <ColorItem
+    title="Primary Foreground"
+    subtitle="Text/icon color on top of primary fills"
+    colors={{ "primary-foreground": "var(--color-primary-foreground)" }}
+  />
+</ColorPalette>
+
+### Surface
+
+<ColorPalette>
+  <ColorItem
+    title="Background"
+    subtitle="Page background — a warm clay off-white, never pure white/gray"
+    colors={{ background: "var(--color-background)" }}
+  />
+  <ColorItem
+    title="Card"
+    subtitle="Card and popover fill — notably lighter than the page background, not darker"
+    colors={{ card: "var(--color-card)" }}
+  />
+  <ColorItem
+    title="Border"
+    subtitle="The one confirmed border/divider tone, used everywhere from cards to inputs"
+    colors={{ border: "var(--color-border)" }}
+  />
+</ColorPalette>
+
+### Text
+
+<ColorPalette>
+  <ColorItem
+    title="Foreground"
+    subtitle="Headings and primary body text — a warm near-black, not neutral"
+    colors={{ foreground: "var(--color-foreground)" }}
+  />
+  <ColorItem
+    title="Muted Foreground"
+    subtitle="Secondary copy, captions, supporting text"
+    colors={{ "muted-foreground": "var(--color-muted-foreground)" }}
+  />
+</ColorPalette>
+
+### Semantic
+
+<ColorPalette>
+  <ColorItem
+    title="Destructive"
+    subtitle="The one confirmed semantic color on the public marketing site (destructive actions/states)"
+    colors={{ destructive: "var(--color-destructive)" }}
+  />
+</ColorPalette>
+
+No warning, success, or info surfaces are confirmed brand truth. `app/globals.css`
+extends the palette with muted warning/success/blue/aqua scales for future in-app
+UI — treat those as this codebase's extension, not scraped brand truth.
+
+## Typography
+
+**Space Grotesk** carries headings and UI labels; **Inter** rides underneath as
+body copy and as the fallback if Space Grotesk fails to load
+(`"Space Grotesk", "Inter", sans-serif"`). Both are self-hosted via Google Fonts,
+confirmed at Space Grotesk 400/500/600/700 and Inter 300/400/500/600.
+
+<Unstyled>
+  <table className="w-full border-collapse">
+    <thead>
+      <tr>
+        <th className="border-b-2 border-borders-primary py-2 pr-6 pl-0 text-left whitespace-nowrap">
+          Token
+        </th>
+        <th className="border-b-2 border-borders-primary py-2 pr-6 pl-0 text-left whitespace-nowrap">
+          Sample
+        </th>
+        <th className="border-b-2 border-borders-primary py-2 pr-6 pl-0 text-left whitespace-nowrap">
+          Specs
+        </th>
+        <th className="border-b-2 border-borders-primary py-2 pr-6 pl-0 text-left whitespace-nowrap">
+          Use
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td className="border-b border-borders-primary py-4 pr-6 pl-0 align-middle">
+          <code>heading-1</code>
+        </td>
+        <td className="border-b border-borders-primary py-4 pr-6 pl-0 align-middle">
+          <span
+            className="text-text-primary"
+            style={{
+              fontFamily: '"Space Grotesk", sans-serif',
+              fontSize: 60,
+              fontWeight: 700,
+              lineHeight: 1,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            Aa
+          </span>
+        </td>
+        <td className="border-b border-borders-primary py-4 pr-6 pl-0 align-middle">
+          36px → 60px (`md:`), 700, tighter tracking
+        </td>
+        <td className="border-b border-borders-primary py-4 pr-6 pl-0 align-middle">
+          Page hero headline
+        </td>
+      </tr>
+      <tr>
+        <td className="border-b border-borders-primary py-4 pr-6 pl-0 align-middle">
+          <code>title</code>
+        </td>
+        <td className="border-b border-borders-primary py-4 pr-6 pl-0 align-middle">
+          <span
+            className="text-text-primary"
+            style={{
+              fontFamily: '"Space Grotesk", sans-serif',
+              fontSize: 18,
+              fontWeight: 700,
+              lineHeight: 1.3,
+            }}
+          >
+            Aa
+          </span>
+        </td>
+        <td className="border-b border-borders-primary py-4 pr-6 pl-0 align-middle">
+          18px, 700, normal tracking
+        </td>
+        <td className="border-b border-borders-primary py-4 pr-6 pl-0 align-middle">
+          Card/feature titles
+        </td>
+      </tr>
+      <tr>
+        <td className="border-b border-borders-primary py-4 pr-6 pl-0 align-middle">
+          <code>label</code>
+        </td>
+        <td className="border-b border-borders-primary py-4 pr-6 pl-0 align-middle">
+          <span
+            className="text-text-primary"
+            style={{
+              fontFamily: '"Space Grotesk", sans-serif',
+              fontSize: 14,
+              fontWeight: 600,
+              lineHeight: 1.3,
+            }}
+          >
+            Aa
+          </span>
+        </td>
+        <td className="border-b border-borders-primary py-4 pr-6 pl-0 align-middle">
+          14px, 600, normal tracking
+        </td>
+        <td className="border-b border-borders-primary py-4 pr-6 pl-0 align-middle">
+          Nav wordmark, small UI labels
+        </td>
+      </tr>
+      <tr>
+        <td className="border-b border-borders-primary py-4 pr-6 pl-0 align-middle">
+          <code>body</code>
+        </td>
+        <td className="border-b border-borders-primary py-4 pr-6 pl-0 align-middle">
+          <span
+            className="text-text-primary"
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 18,
+              fontWeight: 400,
+              lineHeight: 1.6,
+            }}
+          >
+            Aa
+          </span>
+        </td>
+        <td className="border-b border-borders-primary py-4 pr-6 pl-0 align-middle">
+          18px, 400, normal tracking
+        </td>
+        <td className="border-b border-borders-primary py-4 pr-6 pl-0 align-middle">
+          Lead/body paragraphs
+        </td>
+      </tr>
+      <tr>
+        <td className="py-4 pr-6 pl-0 align-middle">
+          <code>caption</code>
+        </td>
+        <td className="py-4 pr-6 pl-0 align-middle">
+          <span
+            className="text-text-tertiary"
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 12,
+              fontWeight: 400,
+              lineHeight: 1.3,
+            }}
+          >
+            Aa
+          </span>
+        </td>
+        <td className="py-4 pr-6 pl-0 align-middle">
+          12px, 400, normal tracking
+        </td>
+        <td className="py-4 pr-6 pl-0 align-middle">Tooltip/badge microcopy</td>
+      </tr>
+    </tbody>
+  </table>
+</Unstyled>
+
+**Principles**
+
+- **Weight, not size, does most of the emphasis work** below the hero — a `700`
+  title next to `400` body at similar sizes reads as hierarchy without reaching
+  for a bigger font size.
+- **Tighter tracking on the hero only** — `tracking-tighter` appears on the large
+  headline; smaller text runs at normal tracking.
+
+## Layout
+
+**Spacing** — base unit `4px` (Tailwind's default scale), confirmed token, no
+custom named spacing scale.
+
+**Responsive strategy** — default Tailwind breakpoints, no custom overrides
+detected in the compiled CSS. `md:` is the confirmed primary responsive prefix in
+use (e.g. the hero headline steps from 36px to 60px at `md:`).
+
+## Shapes
+
+### Border radius scale
+
+Confirmed by usage frequency in the production bundle (most-used first):
+
+<Unstyled>
+  <div style={{ display: "flex", flexWrap: "wrap", gap: 24 }}>
+    {[
+      {
+        token: "full",
+        value: "9999px",
+        radius: 9999,
+        use: "Pills, avatars, progress bars, the chat FAB",
+      },
+      {
+        token: "2xl",
+        value: "16px",
+        radius: 16,
+        use: "Cards, feature tiles, modals, the chat panel",
+      },
+      {
+        token: "xl",
+        value: "12px",
+        radius: 12,
+        use: "Secondary tiles, tooltips/popovers",
+      },
+      {
+        token: "lg",
+        value: "8px",
+        radius: 8,
+        use: "Badges/tags, smaller chrome",
+      },
+      { token: "md", value: "6px", radius: 6, use: "Buttons, form inputs" },
+      {
+        token: "sm",
+        value: "4px",
+        radius: 4,
+        use: "Fine details (least common)",
+      },
+    ].map((item) => (
+      <div
+        key={item.token}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 8,
+          width: 120,
+        }}
+      >
+        <div
+          className="bg-base-gray border border-borders-primary"
+          style={{
+            width: 64,
+            height: 64,
+            borderRadius: item.radius,
+          }}
+        />
+        <strong style={{ fontSize: 13 }}>{item.token}</strong>
+        <span className="text-text-tertiary" style={{ fontSize: 12 }}>
+          {item.value}
+        </span>
+        <span
+          className="text-text-tertiary"
+          style={{ fontSize: 11, textAlign: "center" }}
+        >
+          {item.use}
+        </span>
+      </div>
+    ))}
+  </div>
+</Unstyled>
+
+Buttons (`md`) are meaningfully less rounded than the cards they sit inside
+(`2xl`) — a deliberate two-tier geometry rather than one radius reused everywhere.
+
+## Elevation & depth
+
+Day-to-day section/card hierarchy leans first on the warm neutral ladder (background →
+card → border); the shadow ladder below is reserved for things that float
+above the page.
+
+<Unstyled>
+  <div style={{ display: "flex", flexWrap: "wrap", gap: 24 }}>
+    {[
+      { level: 0, className: "", label: "Flat", use: "Default page content" },
+      {
+        level: 1,
+        className: "shadow-sm",
+        label: "shadow-sm",
+        use: "Resting cards",
+      },
+      {
+        level: 2,
+        className: "shadow-md",
+        label: "shadow-md",
+        use: "Card hover state",
+      },
+      {
+        level: 3,
+        className: "shadow-lg",
+        label: "shadow-lg",
+        use: "Floating action button",
+      },
+      {
+        level: 4,
+        className: "shadow-2xl",
+        label: "shadow-2xl",
+        use: "Tooltips, popovers, modals",
+      },
+    ].map((item) => (
+      <div
+        key={item.level}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 8,
+          width: 140,
+        }}
+      >
+        <div
+          className={`bg-base-gray ${item.className}`}
+          style={{
+            width: 96,
+            height: 64,
+            borderRadius: 16,
+          }}
+        />
+        <strong style={{ fontSize: 13 }}>{item.label}</strong>
+        <span
+          className="text-text-tertiary"
+          style={{ fontSize: 11, textAlign: "center" }}
+        >
+          {item.use}
+        </span>
+      </div>
+    ))}
+  </div>
+</Unstyled>
+
+**Inverse elevation** — tooltips, the chat widget panel, and modals use
+`{colors.foreground}` fill with `{colors.background}` text (a dark chip on the light
+page), at `shadow-xl`–`shadow-2xl`.
+
+## Components
+
+### Buttons
+
+`button-primary`: fill `{colors.primary}`, label `{colors.primary-foreground}`, shape
+`{rounded.md}`. Confirmed padding variants: `px-8 py-3` (standard CTA), `h-12` +
+`text-base` (larger hero CTA). Implemented as [`Button`](?path=/docs/ui-button--docs)
+— see its own docs page for every variant/size.
+
+<Unstyled>
+  <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
+    <Button variant="primary">Standard CTA</Button>
+    <Button variant="primary" size="lg">
+      Hero CTA
+    </Button>
+  </div>
+</Unstyled>
+
+### Cards
+
+`card`: fill `{colors.card}`, 1px `{colors.border}` border, shape
+`{rounded.2xl}`. Confirmed padding variants: `p-6`, `p-7`, `px-8 py-7`. Hover adds
+a `{colors.primary}`-tinted border and, on some tiles, lifts from `shadow-sm` to
+`shadow-md`. _Not yet built as a component — spec only._
+
+### Overlays
+
+`tooltip`: inverse fill (`{colors.foreground}` background, `{colors.background}` text),
+`{rounded.xl}`, `shadow-xl`, `{typography.caption}` text. The chat widget panel
+and modals follow the same inverse-elevation logic at `{rounded.2xl}` and
+`shadow-2xl`. _Not yet built as a component — spec only._
+
+### Inputs & forms
+
+Confirmed `bg-transparent` fields (no filled input background) inside a bordered
+container — no separate "field fill" color the way some systems use a tinted
+input background. Implemented as [`Input`](?path=/docs/ui-input--docs) — see its
+own docs page for every state.
+
+<Unstyled>
+  <div
+    style={{ display: "flex", flexDirection: "column", gap: 16, width: 280 }}
+  >
+    <Input placeholder="Email address" />
+    <Input
+      placeholder="Invalid email"
+      aria-invalid
+      defaultValue="not-an-email"
+    />
+  </div>
+</Unstyled>
+
+## Do's and Don'ts
+
+**Do**
+
+- Keep the background warm (clay off-white) — never drop to pure white or neutral
+  gray as the page background.
+- Reserve `primary` as the only chromatic accent; don't introduce a second
+  "commercial" hue for badges/callouts.
+- Round cards more than buttons — `2xl` containers holding `md` actions, not one
+  radius reused everywhere.
+- Use the shadow ladder for things that float above the page; use the neutral
+  tint ladder for everyday section/card hierarchy.
+- Pair Space Grotesk (headings/labels) with Inter (body) — don't collapse to a
+  single family.
+
+**Don't**
+
+- Don't use pure white/gray surfaces — the warm clay background is the brand's most
+  identifiable trait.
+- Don't invent a second accent hue for emphasis; black carries every
+  "look here" moment.
+- Don't apply `full` radius to cards or `2xl` to buttons — the two-tier radius
+  system is deliberate.
+- Don't assume this is a shadow-free system — overlays and hover states have a
+  real, confirmed elevation ladder.

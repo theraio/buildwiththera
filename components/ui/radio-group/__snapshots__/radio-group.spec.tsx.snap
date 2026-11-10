@@ -1,0 +1,104 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RadioGroup > matches its snapshot 1`] = `
+<div>
+  <div
+    aria-orientation="vertical"
+    aria-required="false"
+    class="flex gap-3 flex-col"
+    data-orientation="vertical"
+    data-slot="radio-group"
+    dir="ltr"
+    role="radiogroup"
+    style="outline: none;"
+    tabindex="0"
+  >
+    <div
+      class="flex items-start gap-2"
+      data-slot="radio-group-option"
+    >
+      <button
+        aria-checked="false"
+        class="size-4 shrink-0 rounded-full border border-input bg-transparent transition-colors hover:border-primary data-[state=checked]:border-primary outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:outline-destructive mt-0.5"
+        data-orientation="vertical"
+        data-radix-collection-item=""
+        data-slot="radio-group-item"
+        data-state="unchecked"
+        id="radio-group-free"
+        role="radio"
+        tabindex="-1"
+        type="button"
+        value="free"
+      />
+      <div
+        class="flex flex-col gap-0.5"
+      >
+        <label
+          class="text-sm font-medium text-foreground cursor-pointer"
+          for="radio-group-free"
+        >
+          Free
+        </label>
+      </div>
+    </div>
+    <div
+      class="flex items-start gap-2"
+      data-slot="radio-group-option"
+    >
+      <button
+        aria-checked="false"
+        class="size-4 shrink-0 rounded-full border border-input bg-transparent transition-colors hover:border-primary data-[state=checked]:border-primary outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:outline-destructive mt-0.5"
+        data-orientation="vertical"
+        data-radix-collection-item=""
+        data-slot="radio-group-item"
+        data-state="unchecked"
+        id="radio-group-pro"
+        role="radio"
+        tabindex="-1"
+        type="button"
+        value="pro"
+      />
+      <div
+        class="flex flex-col gap-0.5"
+      >
+        <label
+          class="text-sm font-medium text-foreground cursor-pointer"
+          for="radio-group-pro"
+        >
+          Pro
+        </label>
+      </div>
+    </div>
+    <div
+      class="flex items-start gap-2"
+      data-slot="radio-group-option"
+    >
+      <button
+        aria-checked="false"
+        class="size-4 shrink-0 rounded-full border border-input bg-transparent transition-colors hover:border-primary data-[state=checked]:border-primary outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:focus-visible:outline-destructive mt-0.5"
+        data-disabled=""
+        data-orientation="vertical"
+        data-radix-collection-item=""
+        data-slot="radio-group-item"
+        data-state="unchecked"
+        disabled=""
+        id="radio-group-enterprise"
+        role="radio"
+        tabindex="-1"
+        type="button"
+        value="enterprise"
+      />
+      <div
+        class="flex flex-col gap-0.5"
+      >
+        <label
+          class="text-sm font-medium text-foreground cursor-not-allowed opacity-50"
+          for="radio-group-enterprise"
+        >
+          Enterprise
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;

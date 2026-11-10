@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Avatar > matches its snapshot 1`] = `
+<div>
+  <span
+    class="relative flex shrink-0 overflow-hidden rounded-full size-10"
+    data-slot="avatar"
+  >
+    <span
+      class="flex size-full items-center justify-center rounded-full bg-muted text-sm font-medium text-foreground"
+      data-slot="avatar-fallback"
+    >
+      AB
+    </span>
+  </span>
+</div>
+`;
