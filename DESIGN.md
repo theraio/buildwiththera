@@ -26,6 +26,7 @@ colors:
   service-ps: "var(--color-service-ps)"
   service-dv: "var(--color-service-dv)"
   service-qa: "var(--color-service-qa)"
+  service-ai: "var(--color-service-ai)"
 
 typography:
   heading-1:
@@ -153,6 +154,7 @@ Each service line owns one color. Use it to tag, label or highlight content that
 | `{colors.service-ps}` | `#9BD301` | Product Strategy & Growth (PS)   | Growth, evolution, direction, energy        |
 | `{colors.service-dv}` | `#0066FF` | DevOps & Cloud Architecture (DV) | Stability, trust, precision, performance    |
 | `{colors.service-qa}` | `#A020F0` | Quality Assurance & Testing (QA) | Detail, control, analysis, perfection       |
+| `{colors.service-ai}` | `#B858F4` | AI for Your Business (AI)        | Intelligence, leverage, imagination         |
 
 Contrast (WCAG ratio on white / on ink `#1E1E1E`): magenta 3.9 / 4.3, orange 2.9 / 5.8, lime 1.8 / 9.3, blue 4.8 / 3.5, violet 5.3 / 3.1. Only blue and violet pass AA for small text on white; only orange and lime pass on ink. Otherwise use service colors as fills, dots, glows or large text (≥24px, or ≥18.66px semibold) — lime on white fails even that. For small labels, set the text in `foreground` next to a service-colored marker.
 

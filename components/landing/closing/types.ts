@@ -1,5 +1,7 @@
-import { LandingCopy } from "~/components/landing/types";
+import { LandingCopy, Locale } from "~/components/landing/types";
 
 export interface ClosingProps {
-  copy: LandingCopy["closing"];
+  copy: LandingCopy["contact"];
+  services: LandingCopy["services"]["items"];
+  locale: Locale;
 }

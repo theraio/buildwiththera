@@ -1,8 +1,6 @@
-import {
-  PROCESS_SCROLL_FRACTION,
-  STORY_TRIGGER_ID,
-} from "~/components/landing/growth-story/constants";
-import { prefersReducedMotion, ScrollTrigger } from "~/utils/gsap";
+import { START_PROJECT_EVENT } from "./constants";
+import { ServiceKey } from "./types";
+import { prefersReducedMotion } from "~/utils/gsap";
 
 import { MouseEvent } from "react";
 
@@ -10,27 +8,16 @@ import { MouseEvent } from "react";
 const HEADER_OFFSET = 64;
 
 /**
- * Smoothly scrolls to an in-page section. `#process` lives inside the pinned
- * story, so it resolves to the scroll position where the first season shows
- * rather than to the element's (pinned) box.
+ * Smoothly scrolls to an in-page section, clear of the fixed header.
  *
  * @param hash - The link's hash, e.g. `#services`.
  * @returns `true` when the target exists and scrolling started.
  */
 export function scrollToSection(hash: string): boolean {
-  let top: number | undefined;
-  const story = ScrollTrigger.getById(STORY_TRIGGER_ID);
-  if (hash === "#process" && story) {
-    top = story.start + (story.end - story.start) * PROCESS_SCROLL_FRACTION;
-  } else {
-    const target = document.querySelector(hash);
-    if (target) {
-      top = target.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
-    }
-  }
-  if (top === undefined) return false;
+  const target = document.querySelector(hash);
+  if (!target) return false;
   window.scrollTo({
-    top,
+    top: target.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET,
     behavior: prefersReducedMotion() ? "auto" : "smooth",
   });
   return true;
@@ -45,4 +32,21 @@ export function scrollToSection(hash: string): boolean {
 export function onSectionLinkClick(event: MouseEvent<HTMLAnchorElement>) {
   const { hash } = event.currentTarget;
   if (hash && scrollToSection(hash)) event.preventDefault();
+}
+
+/**
+ * Opens the project screen instead of following the link (which, without
+ * JavaScript, still lands on the closing section).
+ *
+ * @param event - The link's click event.
+ * @param service - A service to start from, skipping the first question.
+ */
+export function onStartProjectClick(
+  event: MouseEvent<HTMLAnchorElement>,
+  service?: ServiceKey,
+) {
+  event.preventDefault();
+  window.dispatchEvent(
+    new CustomEvent(START_PROJECT_EVENT, { detail: service }),
+  );
 }

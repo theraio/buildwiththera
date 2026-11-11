@@ -1,6 +1,7 @@
 import "./globals.css";
 
 import type { Metadata } from "next";
+import { CursorSparks } from "~/components/widgets/cursor-sparks";
 import { ThemeProvider } from "~/providers";
 import { Toaster } from "~/components/ui";
 import { TrpcProvider } from "~/widgets/trpc/client";
@@ -52,6 +53,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <Toaster />
           </ThemeProvider>
         </TrpcProvider>
+        {/* Outside every stacking context, so the sparks also cross dialogs. */}
+        <CursorSparks />
       </body>
     </html>
   );

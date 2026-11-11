@@ -1,4 +1,5 @@
 import { Closing } from "./closing";
+import { Faq } from "./faq";
 import { GrowthScene } from "~/components/widgets/growth-scene";
 import { GrowthStory } from "./growth-story";
 import { LANDING_COPY } from "./constants";
@@ -25,7 +26,12 @@ function Landing({ locale }: LandingProps) {
         <GrowthStory hero={copy.hero} seasons={copy.seasons} />
         <ServicesShowcase copy={copy.services} />
         <Principles copy={copy.principles} />
-        <Closing copy={copy.closing} />
+        <Faq copy={copy.faq} />
+        <Closing
+          copy={copy.contact}
+          services={copy.services.items}
+          locale={locale}
+        />
       </main>
     </div>
   );

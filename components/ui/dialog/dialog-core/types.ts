@@ -5,9 +5,12 @@ export type DialogCoreProps = ComponentPropsWithRef<
   typeof DialogPrimitive.Root
 >;
 
-export type DialogCoreContentProps = ComponentPropsWithRef<
+export interface DialogCoreContentProps extends ComponentPropsWithRef<
   typeof DialogPrimitive.Content
->;
+> {
+  /** Dims the page behind the dialog; off for full-screen dialogs that cover it. */
+  overlay?: boolean;
+}
 
 export type DialogCoreTitleProps = ComponentPropsWithRef<
   typeof DialogPrimitive.Title

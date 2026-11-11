@@ -114,6 +114,7 @@
   --color-service-ps: var(--color-success-500);
   --color-service-dv: var(--color-blue-500);
   --color-service-qa: var(--color-violet-500);
+  --color-service-ai: var(--color-violet-400);
 
   /* Semantic: icons */
   --color-icons-primary: #a3a3a3;
@@ -236,10 +237,23 @@ body {
   font-family: var(--font-sans);
 }
 
-/* Tab panels swap with a short fade, no movement. */
-@keyframes panel-in {
+/* The project screen sweeps in from the left and keeps going right as it leaves. */
+/* Both ends are explicit: clip-path cannot interpolate to or from none. */
+@keyframes curtain-in {
   from {
-    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes curtain-out {
+  from {
+    clip-path: inset(0 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 100%);
   }
 }
 
