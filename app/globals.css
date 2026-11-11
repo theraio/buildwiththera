@@ -257,6 +257,18 @@ body {
   }
 }
 
+/* The loading screen lifts itself if JavaScript never takes over. */
+@keyframes loader-failsafe {
+  to {
+    visibility: hidden;
+  }
+}
+
+/* Already played this visit: never paint it, not even for a frame. */
+[data-loader-seen] [data-loader] {
+  display: none;
+}
+
 ::selection {
   background: var(--color-success-500);
   color: var(--color-gray-900);

@@ -8,6 +8,8 @@ export interface LandingProps {
 
 export interface LandingCopy {
   meta: { title: string; description: string };
+  /** Line on the loading screen while the roots get ready. */
+  loading: string;
   nav: {
     label: string;
     skipLink: string;

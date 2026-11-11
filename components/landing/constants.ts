@@ -9,10 +9,11 @@ export const START_PROJECT_EVENT = "thera:start-project";
 export const LANDING_COPY: Record<Locale, LandingCopy> = {
   en: {
     meta: {
-      title: "Thera — Purpose-driven software for meaningful growth",
+      title: "Thera — Custom Software & AI for Growing Businesses",
       description:
-        "Thera is Matías Santillan’s software studio for growing businesses. I design and build every project myself, step by step, directly with you.",
+        "Matías Santillan’s software studio: web platforms, AI agents and product design for growing businesses, built one-to-one. A proof of concept in 72 hours.",
     },
+    loading: "Planting the seed.",
     nav: {
       label: "Main",
       skipLink: "Skip to content",
@@ -204,10 +205,11 @@ export const LANDING_COPY: Record<Locale, LandingCopy> = {
   },
   es: {
     meta: {
-      title: "Thera — Software con propósito para un crecimiento real",
+      title: "Thera — Software a medida e IA para negocios que crecen",
       description:
-        "Thera es el estudio de software de Matías Santillan para negocios en crecimiento. Diseño y construyo cada proyecto yo mismo, paso a paso, directo con vos.",
+        "El estudio de software de Matías Santillan: plataformas web, agentes de IA y diseño de producto para negocios que crecen, uno a uno. Prueba de concepto en 72 h.",
     },
+    loading: "Plantando la semilla.",
     nav: {
       label: "Principal",
       skipLink: "Saltar al contenido",
@@ -402,3 +404,9 @@ export const LANDING_COPY: Record<Locale, LandingCopy> = {
 /** The lime the page selects text with: every "start a project" call to action wears it. */
 export const LIME_BUTTON =
   "rounded-full bg-success-500 font-semibold text-gray-900 shadow-[0_8px_32px_-6px_var(--color-success-500)] hover:bg-success-400";
+
+/** Window event the loading screen fires as it lifts; the hero waits for it to animate in. */
+export const REVEAL_EVENT = "thera:revealed";
+
+/** sessionStorage key: the loading screen plays once per visit, not on every language switch. */
+export const LOADER_SEEN_KEY = "thera:loader-seen";

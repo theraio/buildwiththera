@@ -1,7 +1,10 @@
 import "./globals.css";
 
 import type { Metadata } from "next";
+import { FOUNDER, SITE_NAME, SITE_URL } from "~/app/_constants/site";
+
 import { CursorSparks } from "~/components/widgets/cursor-sparks";
+import { LANDING_COPY } from "~/components/landing";
 import { ThemeProvider } from "~/providers";
 import { Toaster } from "~/components/ui";
 import { TrpcProvider } from "~/widgets/trpc/client";
@@ -14,8 +17,25 @@ const chillax = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Thera",
-  description: "Purpose-driven software for meaningful growth.",
+  // Resolves every relative URL in metadata (canonicals, social images).
+  metadataBase: new URL(SITE_URL),
+  title: { default: SITE_NAME, template: `%s · ${SITE_NAME}` },
+  description: LANDING_COPY.en.meta.description,
+  applicationName: SITE_NAME,
+  authors: [{ name: FOUNDER.name, url: FOUNDER.linkedin }],
+  creator: FOUNDER.name,
+  publisher: "thera LLC",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  formatDetection: { telephone: false, address: false, email: false },
   // Positive mark on light browser chrome, negative on dark; favicon.ico
   // (positive) covers browsers that ignore `media`.
   icons: {

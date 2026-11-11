@@ -9,6 +9,7 @@ import {
   GLOW_LENGTH,
   GROWTH_AT_TOP,
   GROWTH_PER_VIEWPORT,
+  SCENE_READY_EVENT,
   PRIMARY_ROOTS,
   TIP_LENGTH,
 } from "./constants";
@@ -214,6 +215,7 @@ function GrowthScene({ className }: GrowthSceneProps) {
       renderer = new THREE.WebGLRenderer({ antialias: true });
     } catch {
       // No WebGL: the ink ground and the copy carry the page on their own.
+      window.dispatchEvent(new Event(SCENE_READY_EVENT));
       return;
     }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
@@ -462,9 +464,15 @@ totalEmissiveRadiance += uTipColor * pow(vFront, 2.5);`,
       if (!reducedMotion) decor.position.x = Math.sin(elapsed * 0.08) * 0.02;
 
       renderer.render(scene, camera);
+      // The first frame with roots in it: the page is ready to be seen.
+      if (!announced && size.depth) {
+        announced = true;
+        window.dispatchEvent(new Event(SCENE_READY_EVENT));
+      }
     };
 
     let frameId = 0;
+    let announced = false;
     let last = performance.now();
     const loop = (now: number) => {
       update(Math.min((now - last) / 1000, 0.05));

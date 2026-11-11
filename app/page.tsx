@@ -1,20 +1,27 @@
-import { LANDING_COPY, Landing } from "~/components/landing";
+import {
+  landingMetadata,
+  landingStructuredData,
+} from "~/app/_utils/landing-seo";
 
+import { Landing } from "~/components/landing";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: LANDING_COPY.en.meta.title,
-  description: LANDING_COPY.en.meta.description,
-  alternates: { languages: { es: "/es" } },
-  openGraph: {
-    title: LANDING_COPY.en.meta.title,
-    description: LANDING_COPY.en.meta.description,
-    siteName: "Thera",
-    locale: "en_US",
-    type: "website",
-  },
-};
+export const metadata: Metadata = landingMetadata("en");
 
 export default function Home() {
-  return <Landing locale="en" />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        // JSON-LD from our own copy; `<` is escaped so no string can close the tag.
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(landingStructuredData("en")).replace(
+            /</g,
+            "\\u003c",
+          ),
+        }}
+      />
+      <Landing locale="en" />
+    </>
+  );
 }

@@ -1,4 +1,8 @@
 import TelemetryTestPanel from "./_components/telemetry-test-panel";
+import type { Metadata } from "next";
+
+// Dev-only tooling: keep it out of search results.
+export const metadata: Metadata = { robots: { index: false, follow: false } };
 
 export default function TelemetryTestPage() {
   return (

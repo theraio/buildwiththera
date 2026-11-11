@@ -19,6 +19,9 @@ export function initAnalytics(): void {
     api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || DEFAULT_POSTHOG_HOST,
     capture_pageview: "history_change",
     person_profiles: "identified_only",
+    // By default its extra scripts land before the first <script> in <body> —
+    // a React-rendered one (the page's JSON-LD) — and break hydration.
+    external_scripts_inject_target: "head",
   });
 }
 

@@ -1,4 +1,8 @@
 import AnalyticsTestPanel from "./_components/analytics-test-panel";
+import type { Metadata } from "next";
+
+// Dev-only tooling: keep it out of search results.
+export const metadata: Metadata = { robots: { index: false, follow: false } };
 
 export default function AnalyticsTestPage() {
   return (

@@ -55,3 +55,6 @@ export const COLOR_TOKENS = {
   tip: "--color-service-ps",
   glows: ["--color-blue-500", "--color-violet-500", "--color-service-ps"],
 } as const;
+
+/** Window event fired once the roots are on screen (or can't be), so a loading screen can lift. */
+export const SCENE_READY_EVENT = "thera:scene-ready";

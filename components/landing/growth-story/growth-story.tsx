@@ -3,6 +3,7 @@
 import { EASE_OUT, SplitText, gsap, prefersReducedMotion } from "~/utils/gsap";
 import {
   LIME_BUTTON,
+  REVEAL_EVENT,
   START_PROJECT_HREF,
 } from "~/components/landing/constants";
 import {
@@ -31,8 +32,8 @@ function GrowthStory({ hero, seasons }: GrowthStoryProps) {
       gsap.set(title.masks, { paddingBottom: "0.2em", marginBottom: "-0.2em" });
       // About 1.1s: lines rise 80ms apart, then lead and actions follow
       // from the moment the last line is half way up.
-      gsap
-        .timeline({ defaults: { ease: EASE_OUT } })
+      const intro = gsap
+        .timeline({ defaults: { ease: EASE_OUT }, paused: true })
         .from(title.lines, {
           yPercent: 125,
           duration: 0.7,
@@ -45,6 +46,12 @@ function GrowthStory({ hero, seasons }: GrowthStoryProps) {
           { autoAlpha: 0, y: 12, duration: 0.52, stagger: 0.06 },
           "-=0.35",
         );
+      // Plays as the loading screen lifts, not hidden behind it.
+      if (document.documentElement.dataset.revealed !== undefined) intro.play();
+      else
+        window.addEventListener(REVEAL_EVENT, () => intro.play(), {
+          once: true,
+        });
     }, root);
 
     return () => context.revert();
