@@ -65,6 +65,15 @@ Everything is optional while working locally — [`.env.example`](./.env.example
 - `pnpm check:types`, `pnpm check:lint`, `pnpm check:format` — keep things tidy (`fix:lint` and `format` fix them for you)
 - `pnpm storybook` — browse the components on port 6006
 
+### 🐳 Deploying with Docker
+
+```bash
+cp .env.example .env         # fill in the production values
+docker compose up -d --build # alfred's Caddy on the same VPS serves it at https://buildwiththera.com
+```
+
+`NEXT_PUBLIC_*` values are baked in at build time, so rebuild after changing them. The rest (`RESEND_*`, `CONTACT_EMAIL_*`) are read from `.env` when the container starts. The container publishes no port: it joins alfred's `live` Docker network as `thera-web`, and alfred's Caddy proxies `buildwiththera.com` to it (`deploy/Caddyfile` in the alfred repo).
+
 ## 📁 Where things live
 
 - `app/` — routes (`/` and `/es`), the layout, global styles and fonts

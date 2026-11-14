@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 import { withSentryConfig } from "@sentry/nextjs/config";
 
-const nextConfig: NextConfig = {/* config options here */};
+const nextConfig: NextConfig = {
+  // Emits .next/standalone so the Docker image ships only traced runtime files.
+  output: "standalone",
+};
 
 export default withSentryConfig(nextConfig, {
   org: process.env.SENTRY_ORG,

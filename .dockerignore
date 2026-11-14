@@ -1,0 +1,16 @@
+node_modules
+.next
+out
+coverage
+storybook-static
+.git
+.github
+.claude
+.impeccable
+.storybook
+stories
+docs
+.env*
+!.env.example
+*.md
+*.tsbuildinfo

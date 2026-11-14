@@ -1,0 +1,29 @@
+services:
+  web:
+    build:
+      context: .
+      args:
+        NEXT_PUBLIC_APP_URL: ${NEXT_PUBLIC_APP_URL:-}
+        NEXT_PUBLIC_SENTRY_DSN: ${NEXT_PUBLIC_SENTRY_DSN:-}
+        NEXT_PUBLIC_POSTHOG_KEY: ${NEXT_PUBLIC_POSTHOG_KEY:-}
+        NEXT_PUBLIC_POSTHOG_HOST: ${NEXT_PUBLIC_POSTHOG_HOST:-}
+        SENTRY_ORG: ${SENTRY_ORG:-}
+        SENTRY_PROJECT: ${SENTRY_PROJECT:-}
+      secrets:
+        - SENTRY_AUTH_TOKEN
+    env_file: .env
+    # No published port: alfred's Caddy (same VPS) terminates TLS for buildwiththera.com and
+    # reaches this container as `thera-web:3000` over its `live` network (see alfred/deploy/Caddyfile).
+    networks:
+      live:
+        aliases: [thera-web]
+    restart: unless-stopped
+
+networks:
+  live:
+    external: true
+    name: ${LIVE_NETWORK:-alfred-assistant_live}
+
+secrets:
+  SENTRY_AUTH_TOKEN:
+    environment: SENTRY_AUTH_TOKEN
